@@ -125,6 +125,9 @@ footer {
 }
 
 /*Days Control*/
+.days-control {
+  margin-bottom: 40px;
+}
 .days-week {
   display: flex;
   justify-content: space-between;
@@ -177,26 +180,28 @@ footer {
   color: #fff;
   transition: all linear .25s;
 }
-.time-close {
-  animation: timeClose .3s forwards;
+
+th, td {text-align: center;}
+.phone-btn {
+  user-select: none;
+  transition: all linear .15s;
 }
-.time-open {
-  animation: timeOpen .3s forwards;
+.phone-btn:active {
+  background-color: #04379d;
+  color: #fff;
+  transition: all linear .15s;
+}
+.modal-item {
+  margin-bottom: 15px;
+}
+.modal-item:last-child {
+  margin-bottom: 0;
 }
 
-@keyframes timeClose {
-  0% {
-    width: 100%;
-  }
-  100% {
-    width: 0;
-  }
-}
-@keyframes timeOpen {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
+#transferForm {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }

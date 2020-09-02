@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
                 counter++;
             });
+            maxPage = time.length - 4;
         }
         else if (winWidth < 470) {
             let counter = 0;
@@ -36,6 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
                 counter++;
             });
+            maxPage = time.length - 5;
         }
         else if (winWidth < 510) {
             let counter = 0;
@@ -54,6 +56,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
                 counter++;
             });
+            maxPage = time.length - 6;
         }
         else if (winWidth < 610) {
             let counter = 0;
@@ -72,6 +75,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
                 counter++;
             });
+            maxPage = time.length - 7;
         }
         else if (winWidth < 680) {
             let counter = 0;
@@ -90,6 +94,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
                 counter++;
             });
+            maxPage = time.length - 8;
         }
         else if (winWidth < 768) {
             let counter = 0;
@@ -108,6 +113,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
                 counter++;
             });
+            maxPage = time.length - 9;
         }
         else if (winWidth < 992) {
             let counter = 0;
@@ -126,6 +132,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
                 counter++;
             });
+            maxPage = time.length - 11;
         }
         else {
             time.forEach(el => {
@@ -139,10 +146,16 @@ window.addEventListener('DOMContentLoaded', () => {
     //variables
     const days = document.querySelectorAll('.day'),
           time = document.querySelectorAll('.time'),
-          timeControls = document.querySelectorAll('.time-control');
+          timeControls = document.querySelectorAll('.time-control'),
+          phoneBtn = document.querySelectorAll('.phone-btn'),
+          transferForm = document.querySelector('#transferForm');
+    let maxPage;
+
+    //viewDays
     viewDays();
     window.addEventListener('resize', viewDays);
 
+    //days control
     days.forEach(el => {
         el.addEventListener('click', () => {
             document.querySelector('.day--active').classList.remove('day--active');
@@ -156,9 +169,10 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    //time-page control
     let page = 0;
     document.querySelector('.next-time').addEventListener('click', () => {
-        if (page === time.length - 4) return;  
+        if (page === maxPage) return;  
         let showTime = [],
             hiddenTime = [];
         time.forEach(el => {
@@ -181,4 +195,21 @@ window.addEventListener('DOMContentLoaded', () => {
         showTime[showTime.length-1].classList.add('time--hidden');
         page--;
     });
+
+    //parents modal window
+    phoneBtn.forEach(el => {
+        el.addEventListener('click', () => {
+            $('#parentModal').modal('show');
+            $('#parentModal').css({
+                'display': 'flex',
+                'align-items': 'center',
+                'justify-content': 'center'
+            });
+        });
+    });
+
+    //transfer group
+    transferForm.addEventListener('submit', e => {
+        e.preventDefault();
+    })
 });
