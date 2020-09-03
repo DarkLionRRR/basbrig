@@ -149,7 +149,61 @@ window.addEventListener('DOMContentLoaded', () => {
           timeControls = document.querySelectorAll('.time-control'),
           phoneBtn = document.querySelectorAll('.phone-btn'),
           transferForm = document.querySelector('#transferForm');
-    let maxPage;
+    let maxPage,
+        date = new Date();
+
+    //set Day
+    switch (date.getDay()) {
+        case 0:
+            days[date.getDay()-1].classList.add('day--active');
+            break;
+        case 1:
+            days[date.getDay()-1].classList.add('day--active');
+            break;
+        case 2:
+            days[date.getDay()-1].classList.add('day--active');
+            break;
+        case 3:
+            days[date.getDay()-1].classList.add('day--active');
+            break;
+        case 4:
+            days[date.getDay()-1].classList.add('day--active');
+            break;
+        case 5:
+            days[date.getDay()-1].classList.add('day--active');
+            break;
+    }
+    
+    //set Time
+    let timetable = [];
+    time.forEach(el => {
+        let timeInner = el.innerHTML;
+        timeInner = timeInner.split(':');
+        let timeItem = {
+            startHour: Number(timeInner[0]),
+            endHour: Number(timeInner[0]) + 1,
+            startMinute: Number(timeInner[1]) - 15,
+            endMinute: Number(timeInner[0]) + 25
+        }
+        timetable.push(timeItem);
+    });
+    /*time.forEach(el => {
+        let timeInner = el.innerHTML;
+        timeInner = timeInner.split(':');
+        let timeItem = {
+            hour: timeInner[0],
+            minute: timeInner[1]
+        };
+        timetable.push(timeItem);
+    });
+    timetable.forEach(el => {
+        if (timetable.indexOf(el) === 0) {
+            if (date.getHours() <= Number(el.hour) + 1) time[0].classList.add('time--active');
+        }
+        else {
+            if (date.getHours() >= Number(el.hour) && date.getMinutes() >= Number(el.minute) - 15) time[timetable.indexOf(el)].classList.add('time--active');
+        }
+    });*/
 
     //viewDays
     viewDays();
