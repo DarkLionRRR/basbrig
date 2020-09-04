@@ -173,20 +173,24 @@ window.addEventListener('DOMContentLoaded', () => {
             days[date.getDay()-1].classList.add('day--active');
             break;
     }
-    
+
     //set Time
-    let timetable = [];
-    time.forEach(el => {
-        let timeInner = el.innerHTML;
-        timeInner = timeInner.split(':');
-        let timeItem = {
-            startHour: Number(timeInner[0]),
-            endHour: Number(timeInner[0]) + 1,
-            startMinute: Number(timeInner[1]) - 15,
-            endMinute: Number(timeInner[0]) + 25
-        }
-        timetable.push(timeItem);
-    });
+    if (date.getHours() < 8) time[0].classList.add('time--active');
+    else if (date.getHours() === 8 && date.getMinutes() < 20) time[0].classList.add('time--active');
+    else if (date.getHours() === 8 && date.getMinutes() >= 20) time[1].classList.add('time--active');
+    else if (date.getHours() === 9 && date.getMinutes() < 40) time[2].classList.add('time--active');
+    else if ((date.getHours() === 9 && date.getMinutes() >= 40) || (date.getHours() === 10 && date.getMinutes() < 20)) time[3].classList.add('time--active');
+    else if (date.getHours() === 10 && date.getMinutes() >= 20) time[4].classList.add('time--active');
+    else if (date.getHours() === 11 && date.getMinutes() < 40) time[5].classList.add('time--active');
+    else if ((date.getHours() === 11 && date.getMinutes() >= 40) || (date.getHours() === 12 && date.getMinutes() < 20)) time[6].classList.add('time--active');
+    else if (date.getHours() === 12 && date.getMinutes() >= 20) time[7].classList.add('time--active');
+    else if (date.getHours() === 13 && date.getMinutes() < 40) time[8].classList.add('time--active');
+    else if ((date.getHours() === 13 && date.getMinutes() >= 40) || (date.getHours() === 14 && date.getMinutes() < 20)) time[9].classList.add('time--active');
+    else if (date.getHours() === 14 && date.getMinutes() >= 20) time[10].classList.add('time--active');
+    else if (date.getHours() === 15 && date.getMinutes() < 40) time[11].classList.add('time--active');
+    else if (date.getHours() === 15 && date.getMinutes() >= 40) time[12].classList.add('time--active');
+    else if (date.getHours() > 15) time[12].classList.add('time--active');
+    //let timetable = [];
     /*time.forEach(el => {
         let timeInner = el.innerHTML;
         timeInner = timeInner.split(':');
@@ -198,7 +202,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     timetable.forEach(el => {
         if (timetable.indexOf(el) === 0) {
-            if (date.getHours() <= Number(el.hour) + 1) time[0].classList.add('time--active');
+            if (4 <= Number(el.hour) + 1) time[0].classList.add('time--active');
         }
         else {
             if (date.getHours() >= Number(el.hour) && date.getMinutes() >= Number(el.minute) - 15) time[timetable.indexOf(el)].classList.add('time--active');
