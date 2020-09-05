@@ -154,9 +154,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //set Day
     switch (date.getDay()) {
-        case 0:
-            days[date.getDay()-1].classList.add('day--active');
-            break;
         case 1:
             days[date.getDay()-1].classList.add('day--active');
             break;
@@ -171,6 +168,12 @@ window.addEventListener('DOMContentLoaded', () => {
             break;
         case 5:
             days[date.getDay()-1].classList.add('day--active');
+            break;
+        case 6:
+            days[date.getDay()-1].classList.add('day--active');
+            break;
+        default:
+            days[days.length - 1].classList.add('day--active');
             break;
     }
 
@@ -270,4 +273,26 @@ window.addEventListener('DOMContentLoaded', () => {
     transferForm.addEventListener('submit', e => {
         e.preventDefault();
     })
+
+    //sort
+    const children = document.querySelectorAll('.kids'),
+          childName = document.querySelectorAll('.kids-name');
+    let childArr = [];
+    childName.forEach(el => {
+        let childNameItem = el.innerHTML.split(' ');
+        let child = {
+            lastname: childNameItem[0],
+            firstname: childNameItem[1],
+            secondname: childNameItem[2]
+        };
+        childArr.push(child);
+    });
+    childArr.sort((a, b) => {
+        if (a.lastname > b.lastname) return 1;
+        if (a.lastname < b.lastname) return -1;
+        return 0; 
+    });
+    for (let i = 0; i < childName.length; i++) {
+        childName[i].innerHTML = `${childArr[i].lastname}  ${childArr[i].firstname}  ${childArr[i].secondname}`;
+    }
 });
