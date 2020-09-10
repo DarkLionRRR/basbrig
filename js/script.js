@@ -43,13 +43,13 @@ const setActiveTimeDefault = (objDate, timeArr) => {
     else if (objDate.getHours() === 8 && objDate.getMinutes() < 20) timeArr[0].classList.add('time-btn--active');
     else if (objDate.getHours() === 8 && objDate.getMinutes() >= 20) timeArr[1].classList.add('time-btn--active');
     else if (objDate.getHours() === 9 && objDate.getMinutes() < 40) timeArr[2].classList.add('time-btn--active');
-    else if ((objDate.getHours() === 9 && objDate.getMinutes() >= 40) || (objDate.getHours() === 10 && date.getMinutes() < 20)) timeArr[3].classList.add('time-btn--active');
+    else if ((objDate.getHours() === 9 && objDate.getMinutes() >= 40) || (objDate.getHours() === 10 && objDate.getMinutes() < 20)) timeArr[3].classList.add('time-btn--active');
     else if (objDate.getHours() === 10 && objDate.getMinutes() >= 20) timeArr[4].classList.add('time-btn--active');
     else if (objDate.getHours() === 11 && objDate.getMinutes() < 40) timeArr[5].classList.add('time-btn--active');
     else if ((objDate.getHours() === 11 && objDate.getMinutes() >= 40) || (objDate.getHours() === 12 && objDate.getMinutes() < 20)) timeArr[6].classList.add('time-btn--active');
     else if (objDate.getHours() === 12 && objDate.getMinutes() >= 20) timeArr[7].classList.add('time-btn--active');
     else if (objDate.getHours() === 13 && objDate.getMinutes() < 40) timeArr[8].classList.add('time-btn--active');
-    else if ((objDate.getHours() === 13 && objDate.getMinutes() >= 40) || (objDate.getHours() === 14 && date.getMinutes() < 20)) timeArr[9].classList.add('time-btn--active');
+    else if ((objDate.getHours() === 13 && objDate.getMinutes() >= 40) || (objDate.getHours() === 14 && objDate.getMinutes() < 20)) timeArr[9].classList.add('time-btn--active');
     else if (objDate.getHours() === 14 && objDate.getMinutes() >= 20) timeArr[10].classList.add('time-btn--active');
     else if (objDate.getHours() === 15 && objDate.getMinutes() < 40) timeArr[11].classList.add('time-btn--active');
     else if (objDate.getHours() === 15 && objDate.getMinutes() >= 40) timeArr[12].classList.add('time-btn--active');
