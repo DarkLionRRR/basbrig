@@ -67,8 +67,47 @@
             </div>
         </div>
     </menu>
+
     <!--MAIN-->
-    <div class="days-control container">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 user">
+                <a class="user__link" href="#">Иванов И.И.</a>
+            </div>
+
+            <h4 class="col-xs-12 h4 headline">Расписание на <span id="date"></span></h4>
+
+            <div class="col-xs-12 days-week">
+                <button class="day-btn">Пн</button>
+                <button class="day-btn">Вт</button>
+                <button class="day-btn">Ср</button>
+                <button class="day-btn">Чт</button>
+                <button class="day-btn">Пт</button>
+                <button class="day-btn">Сб</button>
+            </div>
+
+            <div class="col-xs-12 time-day">
+                <button class="time-control prev-time">&lt;</button>
+                <button class="time-btn">7:55</button>
+                <button class="time-btn">8:35</button>
+                <button class="time-btn">9:15</button>
+                <button class="time-btn">9:55</button>
+                <button class="time-btn">10:35</button>
+                <button class="time-btn">11:15</button>
+                <button class="time-btn">11:55</button>
+                <button class="time-btn">12:35</button>
+                <button class="time-btn">13:15</button>
+                <button class="time-btn">13:55</button>
+                <button class="time-btn">14:35</button>
+                <button class="time-btn">15:15</button>
+                <button class="time-btn last">15:55</button>
+                <button class="time-control next-time">&gt;</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--div class="days-control container">
         <div class="days-week">
             <div class="day">Пн</div>
             <div class="day">Вт</div>
@@ -180,7 +219,6 @@
             </tbody>
         </table>
 
-        <!--PARENTS MODAL-->
         <div class="modal fade" id="parentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -203,7 +241,7 @@
             </div>
           </div>
 
-        <!--GROUP TRANSFER-->
+        <GROUP TRANSFER>
         <form id="transferForm">
             <select name="transfer" id="transfer">
                 <option value="0" selected>Выберете преподавателя:</option>
@@ -214,7 +252,7 @@
             </select>
             <button class="btn btn-success">Передать</button>
         </form>
-    </div>
+    </div-->
 
 
     <!--FOOTER-->
@@ -229,6 +267,6 @@
 
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

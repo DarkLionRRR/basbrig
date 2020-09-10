@@ -28,28 +28,7 @@
   color: #04379d;
 }
 
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #04379d;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #04379d;
-    background: none;
-  }
-  .logo {
-    display: none;
-  }
-}
-@media screen and (min-width: 768px) {
-  .main-menu {
-    border-bottom: 3px solid #7ad0ff;
-    margin: 0 0 2em 0;
-  }
-  .logo {
-    display: block;
-  }
-}
+
 
 body,
 html {
@@ -124,8 +103,83 @@ footer {
   border: #aaa solid 1px;
 }
 
+/*USER*/
+.user {
+  display: flex;
+  justify-content: flex-end;
+}
+.user__link {
+  display: block;
+  font-size: 1.5rem;
+  color: #04379d;
+  transition: color .2s ease-in-out;
+}
+.user__link:hover {
+  text-decoration: none;
+  color: #2164eb;
+}
+.headline {
+  margin-top: 3rem;
+  text-align: center;
+}
 /*Days Control*/
-.days-control {
+.days-week, .time-day {
+  margin-top: 1rem;
+  display: flex;
+}
+.day-btn, .time-btn, .time-control {
+  width: 100%;
+  padding: 0;
+  border-radius: 0;
+  outline: none;
+  border: 1px solid #000;
+  border-right: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #21a1eb;
+  transition: background-color .2s ease-in-out;
+}
+.day-btn:last-child, .next-time {border-right: 1px solid #000;}
+.day-btn:hover, .time-btn:hover, .time-control:hover {
+  background-color: #1b50b9;
+}
+.day-btn--active, .time-btn--active {
+  background-color: #1b50b9;
+}
+.time-btn.hide {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #04379d;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #04379d;
+    background: none;
+  }
+  .logo {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .main-menu {
+    border-bottom: 3px solid #7ad0ff;
+    margin: 0 0 2em 0;
+  }
+  .logo {
+    display: block;
+  }
+  .user__link {font-size: 2rem;}
+  .headline {font-size: 24px;}
+  .time-control {display: none;}
+  .last {border-right: 1px solid #000;}
+}
+
+
+/*.days-control {
   margin-bottom: 40px;
 }
 .days-week {
@@ -204,4 +258,4 @@ th, td {text-align: center;}
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-}
+}*/
