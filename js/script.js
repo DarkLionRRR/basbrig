@@ -74,7 +74,7 @@ const viewTimeDefault = timeArr => {
     } 
     else if (activeTime >= timeArr.length - 4) {
         timeArr.forEach((el, index) => {
-            (index < activeTime) && el.classList.add('hide');
+            (index < timeArr.length - 4) && el.classList.add('hide');
         });
     } else {
         timeArr.forEach((el, index) => {
@@ -82,12 +82,37 @@ const viewTimeDefault = timeArr => {
         });
     }
 };
+const nextPageTime = time => {
+    time = Array.from(time);
+    let page = time.findIndex(el => !el.classList.contains('hide')) + 1;
+    if(page - 1 >= time.length - 3) page = time.length - 3;
+    if (page === time.length - 3) return;
+    let showTimeIndex = [];
+    time.forEach((el, index) => {
+        !el.classList.contains('hide') && showTimeIndex.push(index);
+    });
+    time[showTimeIndex[showTimeIndex.length - 1] + 1].classList.remove('hide');
+    time[showTimeIndex[0]].classList.add('hide');
+};
+const prevPageTime = time => {
+    time = Array.from(time);
+    let page = time.findIndex(el => !el.classList.contains('hide')) + 1;
+    if(page - 1 >= time.length - 3) page = time.length - 3;
+    if (page - 1 === 0) return;
+    let showTimeIndex = [];
+    time.forEach((el, index) => {
+        !el.classList.contains('hide') && showTimeIndex.push(index);
+    });
+    time[showTimeIndex[0] - 1].classList.remove('hide');
+    time[showTimeIndex[showTimeIndex.length - 1]].classList.add('hide');
+};
 
 window.addEventListener('DOMContentLoaded', () => {
     //variables
     const spanDate = document.querySelector('#date'),
           days = document.querySelectorAll('.day-btn'),
-          time = document.querySelectorAll('.time-btn');
+          time = document.querySelectorAll('.time-btn'),
+          timeControl = document.querySelectorAll('.time-control');
 
     let date = new Date();
 
@@ -107,4 +132,9 @@ window.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('click', () => setActiveTime(time, el));
     });
     viewTimeDefault(time);
+    timeControl.forEach(el => {
+        el.addEventListener('click', () => {
+            el.innerHTML === '&gt;' ? nextPageTime(time) : prevPageTime(time);
+        });
+    });
 });
